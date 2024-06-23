@@ -7,7 +7,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 export default class Constants {
   // Display app name (uppercase first letter)
   // static APP_NAME = name.charAt(0).toUpperCase() + name.slice(1)
-  static APP_NAME = 'Modus Plus Admin'
+  static APP_NAME = 'Fire Guard Admin'
 
   static APP_VERSION = version
 

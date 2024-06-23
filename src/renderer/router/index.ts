@@ -5,10 +5,24 @@ export default createRouter({
   history: createWebHashHistory(),
   routes: [
     {
-      path: '/',
+      path: '/main',
       component: MainScreen,
       meta: {
         titleKey: 'title.main'
+      }
+    },
+    {
+      path: '/applications',
+      component: () => import('@/renderer/screens/ApplicationsScreen.vue'),
+      meta: {
+        titleKey: 'title.applications'
+      }
+    },
+    {
+      path: '/accounts',
+      component: () => import('@/renderer/screens/TheAccounts.vue'),
+      meta: {
+        titleKey: 'title.accounts'
       }
     },
     {
@@ -28,6 +42,10 @@ export default createRouter({
     {
       path: '/:pathMatch(.*)*',
       redirect: '/'
+    },
+    {
+      path: '/',
+      redirect: '/main'
     },
     {
       path: '/home',

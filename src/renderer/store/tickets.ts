@@ -15,7 +15,7 @@ export const useTicketsStore = defineStore('tickets-store', () => {
     tickets.value = await getTicketsApi(usersStore.accesToken)
   }
 
-  const addTicket = async (date: Date) => {
+  const addTicket = async (date: string) => {
     console.log('store', date)
     if (!(await usersStore.checkAccesToken())) router.push('/')
     await addTicketApi(date, usersStore.accesToken)

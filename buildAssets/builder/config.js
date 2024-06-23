@@ -2,7 +2,7 @@
 const dotenv = require('dotenv')
 
 const baseConfig = {
-  productName: 'Modusplus admin',
+  productName: 'Fire Guard Admin',
   appId: 'com.modusplus.modusplusadmin',
   asar: true,
   extends: null,

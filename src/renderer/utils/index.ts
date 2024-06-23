@@ -19,3 +19,5 @@ export const getCookie = (value: string): string | null => {
     (document.cookie.match('(^|; )' + encodeURIComponent(value) + '=([^;]+)') || []).pop() || null
   )
 }
+
+export const TOKEN_COOKIE = 'access_token'

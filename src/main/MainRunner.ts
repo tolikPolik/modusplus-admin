@@ -1,6 +1,8 @@
 import { app, BrowserWindow, RenderProcessGoneDetails } from 'electron'
 import Constants from './utils/Constants'
 import IPCs from './IPCs'
+// import { dirname } from 'path'
+// import { fileURLToPath } from 'url'
 
 const exitApp = (mainWindow: BrowserWindow): void => {
   if (mainWindow && !mainWindow.isDestroyed()) {
@@ -11,6 +13,13 @@ const exitApp = (mainWindow: BrowserWindow): void => {
 }
 
 export const createMainWindow = async (mainWindow: BrowserWindow): Promise<BrowserWindow> => {
+  // const nativeImage = require('electron').nativeImage
+  // const image = nativeImage.createFromPath(
+  //   dirname(fileURLToPath(import.meta.url)) + '/public/logo.png'
+  // )
+
+  // image.setTemplateImage(true)
+
   mainWindow = new BrowserWindow({
     title: Constants.APP_NAME,
     show: false,
@@ -22,6 +31,7 @@ export const createMainWindow = async (mainWindow: BrowserWindow): Promise<Brows
     minHeight: 650,
     useContentSize: true,
     webPreferences: Constants.DEFAULT_WEB_PREFERENCES
+    // icon: image
   })
 
   mainWindow.setMenu(null)
@@ -32,6 +42,7 @@ export const createMainWindow = async (mainWindow: BrowserWindow): Promise<Brows
   })
 
   mainWindow.webContents.on('did-frame-finish-load', (): void => {
+    // mainWindow.webContents.openDevTools()
     if (Constants.IS_DEV_ENV) {
       mainWindow.webContents.openDevTools()
     }
